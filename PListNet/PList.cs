@@ -108,7 +108,7 @@ namespace PListNet
 					// whereas the Apple parser can't deal with the space and expects <true/>
 					tmpStream.Seek(0, SeekOrigin.Begin);
 					using (var reader = new StreamReader(tmpStream))
-					using (var writer = new StreamWriter(stream, Encoding.UTF8, 4096, true))
+					using (var writer = new StreamWriter(stream, encoding ?? Encoding.UTF8, 4096, true))
 					{
 						writer.NewLine = newLine;
 						for (var line = reader.ReadLine(); line != null; line = reader.ReadLine())
